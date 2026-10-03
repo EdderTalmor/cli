@@ -90,7 +90,7 @@ func NewCmdList(f *cmdutil.Factory, runF func(*ListOptions) error) *cobra.Comman
 	cmd.Flags().StringVarP(&opts.Branch, "branch", "b", "", "Filter runs by branch")
 	cmd.Flags().StringVarP(&opts.Actor, "user", "u", "", "Filter runs by user who triggered the run")
 	cmd.Flags().StringVarP(&opts.Event, "event", "e", "", "Filter runs by which `event` triggered the run")
-	cmd.Flags().StringVarP(&opts.Created, "created", "", "", "Filter runs by the `date` it was created")
+	cmd.Flags().StringVarP(&opts.Created, "created", "", "", "Filter runs by the `date` it was created (uses GitHub search date syntax: `YYYY-MM-DD`, with optional comparison operators like `>=2024-01-01`; see <https://docs.github.com/en/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax>)")
 	cmd.Flags().StringVarP(&opts.Commit, "commit", "c", "", "Filter runs by the `SHA` of the commit")
 	cmd.Flags().BoolVarP(&opts.All, "all", "a", false, "Include disabled workflows")
 	cmdutil.StringEnumFlag(cmd, &opts.Status, "status", "s", "", shared.AllStatuses, "Filter runs by status")
